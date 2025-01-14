@@ -6,6 +6,12 @@ export default async function Todos() {
   const supabase = createClient();
 
   const { data: todos, error } = await supabase.from("todos").select("*");
+  const { data: products } = await supabase.from("products").select("*");
+  const { data: product_images } = await supabase.from("product_images").select("*");
+
+
+  console.log('hello todos');
+  console.log(product_images)
 
   if (error) {
     throw new Error(error.message);
